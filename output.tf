@@ -4,5 +4,5 @@ output "kubeconfig_file" {
 }
 
 output "nodes_url" {
-  value       = ovh_cloud_project_kube.mycluster.nodes_url
+  value = ovh_cloud_project_kube.mycluster.nodes_url
 }
