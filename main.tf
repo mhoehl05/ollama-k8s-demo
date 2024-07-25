@@ -15,3 +15,10 @@ resource "ovh_cloud_project_kube_nodepool" "node_pool" {
   monthly_billed = false
 }
 
+resource "helm_release" "nginx_ingress" {
+  name             = "ollama-demo-helmchart"
+  chart            = "./helmchart/ollama-demo-helmchart"
+  namespace        = "ollama"
+  create_namespace = true
+}
+

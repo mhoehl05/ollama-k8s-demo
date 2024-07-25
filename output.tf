@@ -1,5 +1,6 @@
 output "kubeconfig_file" {
-  value     = ovh_cloud_project_kube.mycluster.kubeconfig
+  content   = ovh_cloud_project_kube.mycluster.kubeconfig
+  filename  = "kubeconfig.yaml"
   sensitive = true
 }
 
