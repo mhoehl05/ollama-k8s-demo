@@ -22,6 +22,10 @@ resource "helm_release" "gpu_operator" {
   namespace        = "gpu-operator"
   create_namespace = true
   wait             = true
+
+  depends_on = [
+    ovh_cloud_project_kube_nodepool.node_pool
+  ]
 }
 
 resource "helm_release" "ollama_demo" {
@@ -29,5 +33,9 @@ resource "helm_release" "ollama_demo" {
   chart            = "./helmchart/ollama-demo-helmchart"
   namespace        = "ollama"
   create_namespace = true
+
+  depends_on = [
+    ovh_cloud_project_kube_nodepool.node_pool
+  ]
 }
 
