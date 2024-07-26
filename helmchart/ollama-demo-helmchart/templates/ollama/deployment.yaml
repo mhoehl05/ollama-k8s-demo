@@ -31,3 +31,9 @@ spec:
       priorityClassName: system-node-critical  
   strategy:
     type: Recreate
+
+# use these lines to pull images in advance
+#         lifecycle:
+#            postStart:
+#              exec:
+#                command: ["/bin/sh", "-c", {{cmd}}]
