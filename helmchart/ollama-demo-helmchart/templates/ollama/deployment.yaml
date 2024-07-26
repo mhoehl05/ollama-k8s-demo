@@ -16,6 +16,10 @@ spec:
       containers:
       - name: ollama
         image: ollama/ollama:latest
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "-c", "ollama pull phi3"]
         resources:
           limits:
             nvidia.com/gpu: 1
@@ -31,9 +35,3 @@ spec:
       priorityClassName: system-node-critical  
   strategy:
     type: Recreate
-
-# use these lines to pull images in advance
-#         lifecycle:
-#            postStart:
-#              exec:
-#                command: ["/bin/sh", "-c", {{cmd}}]
