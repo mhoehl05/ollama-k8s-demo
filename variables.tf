@@ -13,7 +13,7 @@ variable "ovh_consumer_key" {
 
 
 # GPU specifications: https://www.ovhcloud.com/en/public-cloud/gpu/
-# Possible options: https://www.ovhcloud.com/en/public-cloud/prices/
+# Possible options (check in portal): https://www.ovhcloud.com/en/public-cloud/prices/
 
 
 variable "flavor_name" {
@@ -21,3 +21,8 @@ variable "flavor_name" {
   default     = "l4-90"
   description = "flavor name that defines the size of the work node (needs to be gpu enabled and default to cheapest gpu flavor)"
 }
+
+# GRA7
+# t1-le-45 (1xV100)
+# t1-le-90 (2xV100)
+# t1-le-180 (4xV100)
