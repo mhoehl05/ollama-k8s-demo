@@ -22,4 +22,11 @@ variable "gpu_count" {
   description = "amount of gpus per node"
 }
 
+variable "region" {
+  type        = string
+  default     = "GRA11"
+  description = "region of the cluster"
+}
+
+
 
