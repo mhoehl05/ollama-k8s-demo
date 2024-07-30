@@ -18,7 +18,7 @@ variable "ovh_consumer_key" {
 
 variable "flavor_name" {
   type        = string
-  default     = "l4-90"
+  default     = "l4-180"
   description = "flavor name that defines the size of the work node (needs to be gpu enabled and default to cheapest gpu flavor)"
 }
 
