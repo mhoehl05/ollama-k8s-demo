@@ -1,5 +1,5 @@
 locals {
-  gpu_count = 2
+  gpu_count = 1
 }
 
 
