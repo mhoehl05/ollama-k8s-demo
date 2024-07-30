@@ -22,7 +22,7 @@ spec:
               command: ["/bin/sh", "-c", "ollama pull phi3"]
         resources:
           limits:
-            nvidia.com/gpu: 1
+            nvidia.com/gpu: {{ default 1 .Values.ollama.deployment.resources.limits.gpu }}
         ports:
         - containerPort: 11434
         volumeMounts:  # <--- Add volume mounts

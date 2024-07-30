@@ -1,0 +1,7 @@
+%{ if gpu_count != "" }
+ollama:
+  deployment:
+    resources:
+      limits:
+        gpu: ${ gpu_count }
+%{ endif }
