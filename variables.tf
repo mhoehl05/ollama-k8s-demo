@@ -28,5 +28,11 @@ variable "region" {
   description = "region of the cluster"
 }
 
+variable "cluster_name" {
+  type        = string
+  default     = "my_kube_cluster"
+  description = "name of the cluster"
+}
+
 
 

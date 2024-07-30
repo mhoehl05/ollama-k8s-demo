@@ -1,6 +1,6 @@
 resource "ovh_cloud_project_kube" "mycluster" {
   service_name = "f17cf6a8b8b14b08a4958b53dc8105a5"
-  name         = "my_kube_cluster"
+  name         = var.cluster_name
   region       = var.region
 }
 
