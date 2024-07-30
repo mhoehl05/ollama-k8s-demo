@@ -16,3 +16,10 @@ variable "flavor_name" {
   description = "flavor name that defines the size of the work node (needs to be gpu enabled and default to cheapest gpu flavor)"
 }
 
+variable "gpu_count" {
+  type        = number
+  default     = 1
+  description = "amount of gpus per node"
+}
+
+
