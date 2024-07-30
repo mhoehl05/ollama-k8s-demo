@@ -7,9 +7,9 @@ Helmchart and terraform code to deploy a managed k8s cluster and install a worki
 
 
 # GRA7
-# t1-le-45 (1xV100)
-# t1-le-90 (2xV100)
-# t1-le-180 (4xV100)
+- t1-le-45 (1xV100)
+- t1-le-90 (2xV100)
+- t1-le-180 (4xV100)
 
 # Schritt für Schritt:
 
