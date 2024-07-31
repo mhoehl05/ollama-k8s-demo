@@ -36,7 +36,7 @@ https://www.scaleway.com/en/docs/compute/gpu/how-to/use-mig-with-kubernetes/
 
 https://towardsdatascience.com/dynamic-mig-partitioning-in-kubernetes-89db6cdde7a3
 
-kubectl label nodes my-pool-1-node-471770 nvidia.com/mig.config=all-1g.10gb --overwrite
+kubectl label nodes nodenamehier nvidia.com/mig.config=all-1g.10gb --overwrite
 (alle pods die gpus benötigen müssen gelöscht werden)
 Status überprüfen mit:
 kubectl logs nodenamehier -n gpu-operator
