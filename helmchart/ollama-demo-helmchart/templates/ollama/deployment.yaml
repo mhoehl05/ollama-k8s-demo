@@ -19,7 +19,7 @@ spec:
         lifecycle:
           postStart:
             exec:
-              command: ["/bin/sh", "-c", "ollama pull phi3"]
+              command: ["/bin/sh", "-c", "ollama pull llama3.1 && ollama pull phi3 && ollama pull gemma && ollama pull qwen2 && ollama pull llava"]
         resources:
           limits:
             nvidia.com/gpu: {{ default 1 .Values.ollama.deployment.resources.limits.gpu }}

@@ -34,5 +34,11 @@ variable "cluster_name" {
   description = "name of the cluster"
 }
 
+variable "service_name" {
+  type        = string
+  default     = "f17cf6a8b8b14b08a4958b53dc8105a5"
+  description = "Name of the OVH service (subscription)"
+}
+
 
 

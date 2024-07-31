@@ -1,11 +1,11 @@
 resource "ovh_cloud_project_kube" "mycluster" {
-  service_name = "f17cf6a8b8b14b08a4958b53dc8105a5"
+  service_name = var.service_name
   name         = var.cluster_name
   region       = var.region
 }
 
 resource "ovh_cloud_project_kube_nodepool" "node_pool" {
-  service_name   = "f17cf6a8b8b14b08a4958b53dc8105a5"
+  service_name   = ovh_cloud_project_kube.mycluster.service_name
   kube_id        = ovh_cloud_project_kube.mycluster.id
   name           = "my-pool-1" //Warning: "_" char is not allowed!
   flavor_name    = var.flavor_name
