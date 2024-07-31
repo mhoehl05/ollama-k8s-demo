@@ -23,6 +23,9 @@ spec:
         resources:
           limits:
             nvidia.com/gpu: {{ default 1 .Values.ollama.deployment.resources.limits.gpu }}
+        env:
+        - name: OLLAMA_NUM_PARALLEL
+          value: {{ default 4 .Values.ollama.deployment.max_requests }}
         ports:
         - containerPort: 11434
         volumeMounts:  # <--- Add volume mounts

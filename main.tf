@@ -29,7 +29,7 @@ resource "helm_release" "gpu_operator" {
 }
 
 resource "local_file" "ollama_values" {
-  content  = templatefile("${path.module}/values.tftpl", { gpu_count = var.gpu_count })
+  content  = templatefile("${path.module}/values.tftpl", { gpu_count = var.gpu_count, max_requests = var.max_requests })
   filename = "${path.module}/helmchart/ollama-demo-helmchart/values.yaml"
 }
 

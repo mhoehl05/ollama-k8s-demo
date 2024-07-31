@@ -22,6 +22,12 @@ variable "gpu_count" {
   description = "amount of gpus per node"
 }
 
+variable "max_requests" {
+  type        = string
+  default     = 4
+  description = "max amount of request that can be made parallel to a ollama pod"
+}
+
 variable "region" {
   type        = string
   default     = "GRA11"

@@ -1,7 +1,10 @@
-%{ if gpu_count != "" }
 ollama:
   deployment:
+%{ if max_requests != "" }
+    max_requests: ${ max_requests }
+%{ endif }
     resources:
       limits:
+%{ if gpu_count != "" }
         gpu: ${ gpu_count }
 %{ endif }
