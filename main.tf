@@ -38,6 +38,7 @@ resource "helm_release" "ollama_demo" {
   chart            = "./helmchart/ollama-demo-helmchart"
   namespace        = "ollama"
   create_namespace = true
+  wait             = true
 
   depends_on = [
     ovh_cloud_project_kube_nodepool.node_pool,
