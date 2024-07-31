@@ -39,8 +39,8 @@ https://towardsdatascience.com/dynamic-mig-partitioning-in-kubernetes-89db6cdde7
 kubectl label nodes my-pool-1-node-471770 nvidia.com/mig.config=all-1g.10gb --overwrite
 (alle pods die gpus benötigen müssen gelöscht werden)
 Status überprüfen mit:
-kubectl logs nvidia-mig-manager-p4g9k -n gpu-operator
-kubectl get node my-pool-1-node-471770 -oyaml | grep nvidia
+kubectl logs nodenamehier -n gpu-operator
+kubectl get node nodenamehier -oyaml | grep nvidia
 
 label mig.state muss auf success sein
 label für gpuproduct muss danach wie folgt aussehen: gpuname + migconfig BSP: NVIDIA-A100-80GB-PCIe-MIG-1g.10gb
