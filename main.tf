@@ -60,6 +60,7 @@ resource "helm_release" "ollama_demo" {
 
   depends_on = [
     ovh_cloud_project_kube_nodepool.node_pool,
+    helm_release.gpu_operator,
     local_file.ollama_values
   ]
 }
