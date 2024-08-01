@@ -6,7 +6,7 @@ ollama:
 %{ endif }
       resources:
         limits:
-%{ if gpu_count != "" }
+%{ if small_slice_count != "" }
           gpu: ${ small_slice_count }
 %{ endif }
     large:
@@ -15,6 +15,6 @@ ollama:
 %{ endif }
       resources:
         limits:
-%{ if gpu_count != "" }
+%{ if large_slice_count != "" }
           gpu: ${ large_slice_count }
 %{ endif }
