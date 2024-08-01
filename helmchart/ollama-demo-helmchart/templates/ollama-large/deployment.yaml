@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama-large
+  namespace: ollama
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ollama-large
+  template:
+    metadata:
+      labels:
+        app: ollama-large
+    spec:
+      containers:
+      - name: ollama
+        image: ollama/ollama:latest
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "-c", "ollama pull llama3.1:70b"]
+              #command: ["/bin/sh", "-c", "ollama pull llama3.1 && ollama pull phi3 && ollama pull gemma && ollama pull qwen2 && ollama pull llava"]
+        resources:
+          limits:
+            nvidia.com/gpu: {{ default 4 .Values.ollama.deployment.resources.limits.gpu }}
+        env:
+        - name: OLLAMA_NUM_PARALLEL
+          value: "{{ default 4 .Values.ollama.deployment.max_requests }}"
+        ports:
+        - containerPort: 11434
+        volumeMounts:  # <--- Add volume mounts
+        - name: ollama-data
+          mountPath: /root/.ollama
+      volumes:  # <--- Add volumes
+      - name: ollama-data
+        persistentVolumeClaim:
+          claimName: ollama-large-pvc
+      priorityClassName: system-node-critical  
+  strategy:
+    type: Recreate

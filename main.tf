@@ -13,6 +13,17 @@ resource "ovh_cloud_project_kube_nodepool" "node_pool" {
   max_nodes      = 1
   min_nodes      = 1
   monthly_billed = false
+
+  template {
+    metadata {
+      labels = {
+        nvidia.com/mig.config="all-1g.${var.mig_size}"
+      }
+    }
+    spec {
+      unschedulable = false
+    }
+  }
 }
 
 resource "helm_release" "gpu_operator" {
@@ -29,7 +40,11 @@ resource "helm_release" "gpu_operator" {
 }
 
 resource "local_file" "ollama_values" {
-  content  = templatefile("${path.module}/values.tftpl", { gpu_count = var.gpu_count, max_requests = var.max_requests })
+  content  = templatefile("${path.module}/values.tftpl", { 
+    small_slice_count = var.small_slice_count, 
+    large_slice_count = var.large_slice_count, 
+    max_requests      = var.max_requests 
+    })
   filename = "${path.module}/helmchart/ollama-demo-helmchart/values.yaml"
 }
 
@@ -45,4 +60,3 @@ resource "helm_release" "ollama_demo" {
     local_file.ollama_values
   ]
 }
-

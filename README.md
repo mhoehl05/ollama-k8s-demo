@@ -47,3 +47,6 @@ label für gpuproduct muss danach wie folgt aussehen: gpuname + migconfig BSP: N
 
 danach besitzt die node x beliebige slices die vom pod als eingeständige gpus interpretiert werden.
 - Selfhosting vs ChatGPT monthly preise vergleichen
+- Welche deployment methoden gibt es?
+Ollama operator können das deployment vereinfachen. Models können in kubernetes yaml files oder helm charts definiert werden.
+https://ollama-operator.ayaka.io/pages/en/guide/overview.html

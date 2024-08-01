@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ollama
+  name: ollama-small
   namespace: ollama
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ollama
+      app: ollama-small
   template:
     metadata:
       labels:
-        app: ollama
+        app: ollama-small
     spec:
       containers:
       - name: ollama
@@ -19,7 +19,8 @@ spec:
         lifecycle:
           postStart:
             exec:
-              command: ["/bin/sh", "-c", "ollama pull llama3.1 && ollama pull phi3 && ollama pull gemma && ollama pull qwen2 && ollama pull llava"]
+              command: ["/bin/sh", "-c", "ollama pull phi3"]
+              #command: ["/bin/sh", "-c", "ollama pull llama3.1 && ollama pull phi3 && ollama pull gemma && ollama pull qwen2 && ollama pull llava"]
         resources:
           limits:
             nvidia.com/gpu: {{ default 1 .Values.ollama.deployment.resources.limits.gpu }}
@@ -34,7 +35,7 @@ spec:
       volumes:  # <--- Add volumes
       - name: ollama-data
         persistentVolumeClaim:
-          claimName: ollama-pvc
+          claimName: ollama-small-pvc
       priorityClassName: system-node-critical  
   strategy:
     type: Recreate

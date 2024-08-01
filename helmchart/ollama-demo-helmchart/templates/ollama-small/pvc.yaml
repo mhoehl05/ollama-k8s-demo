@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: ollama-pvc
+  name: ollama-small-pvc
   namespace: ollama
 spec:
   accessModes:

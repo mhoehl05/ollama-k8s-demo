@@ -1,10 +1,20 @@
 ollama:
   deployment:
+    small:
 %{ if max_requests != "" }
-    max_requests: ${ max_requests }
+      max_requests: ${ max_requests }
 %{ endif }
-    resources:
-      limits:
+      resources:
+        limits:
 %{ if gpu_count != "" }
-        gpu: ${ gpu_count }
+          gpu: ${ small_slice_count }
+%{ endif }
+    large:
+%{ if max_requests != "" }
+      max_requests: ${ max_requests }
+%{ endif }
+      resources:
+        limits:
+%{ if gpu_count != "" }
+          gpu: ${ large_slice_count }
 %{ endif }
