@@ -23,10 +23,10 @@ spec:
               #command: ["/bin/sh", "-c", "ollama pull llama3.1 && ollama pull phi3 && ollama pull gemma && ollama pull qwen2 && ollama pull llava"]
         resources:
           limits:
-            nvidia.com/gpu: {{ default 1 .Values.ollama.deployment.resources.limits.gpu }}
+            nvidia.com/gpu: {{ default 1 .Values.ollama.deployment.small.resources.limits.gpu }}
         env:
         - name: OLLAMA_NUM_PARALLEL
-          value: "{{ default 4 .Values.ollama.deployment.max_requests }}"
+          value: "{{ default 4 .Values.ollama.deployment.small.max_requests }}"
         ports:
         - containerPort: 11434
         volumeMounts:  # <--- Add volume mounts
