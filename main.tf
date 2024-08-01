@@ -17,7 +17,7 @@ resource "ovh_cloud_project_kube_nodepool" "node_pool" {
   template {
     metadata {
       labels = {
-        nvidia.com/mig.config="all-1g.${var.mig_size}"
+       "nvidia.com/mig.config"="all-1g.${var.mig_size}"
       }
     }
     spec {
